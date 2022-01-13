@@ -9,10 +9,14 @@ const app = Vue.createApp({
   methods: {
     disCount() {
       // console.log("click");
-      this.interval = setInterval(() => this.count--, 100);
+      setTimeout(() => {
+        this.interval = setInterval(() => this.count--, 150);
+      }, 500);
     },
     addCount() {
-      this.interval = setInterval(() => this.count++, 100);
+      setTimeout(() => {
+        this.interval = setInterval(() => this.count++, 150);
+      }, 500);
     },
     stopCount() {
       clearInterval(this.interval);
