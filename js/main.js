@@ -3,15 +3,20 @@ const app = Vue.createApp({
     return {
       title: "Contador App - Vue",
       count: 0,
+      interval: null,
     };
   },
   methods: {
     disCount() {
       // console.log("click");
-      this.count--;
+      this.interval = setInterval(() => this.count--, 100);
     },
     addCount() {
-      this.count++;
+      this.interval = setInterval(() => this.count++, 100);
+    },
+    stopCount() {
+      clearInterval(this.interval);
+      this.interval = false;
     },
     modCount(instruction = "add", limit = 1) {
       if (instruction === "add") {

@@ -47,9 +47,24 @@
             <!-- <button v-on:click="disCount">-1</button> -->
             <!-- Forma Abreviada del evento-->
             <!-- <button @click="disCount">-1</button> -->
-            <button @click="modCount('sub', 1)">-1</button>
+            <button @click="modCount('sub', 1)"
+            @mousedown="disCount()"
+            @mouseup="stopCount()"
+            @mouseleave="stopCount()" 
+            @touchstart="disCount()"
+            @touchend="stopCount()" 
+            @touchcancel="stopCount()" 
+            >-1</button>
             <!-- <button @click="addCount">+1</button> -->
-            <button @click="modCount(undefined, 1)">+1</button>
+            <button 
+            @click="modCount(undefined, 1)"
+            @mousedown="addCount()"
+            @mouseup="stopCount()"
+            @mouseleave="stopCount()" 
+            @touchstart="addCount()"
+            @touchend="stopCount()" 
+            @touchcancel="stopCount()" 
+            >+1</button>
         </div>
 
     </div>
