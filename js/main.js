@@ -23,6 +23,7 @@ const app = Vue.createApp({
       this.interval = false;
     },
     modCount(instruction = "add", limit = 1) {
+      clearInterval(this.interval);
       if (instruction === "add") {
         this.count += limit;
       } else if (instruction === "sub") {
