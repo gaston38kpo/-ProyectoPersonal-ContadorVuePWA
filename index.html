@@ -49,9 +49,9 @@
             <!-- <button @click="disCount">-1</button> -->
             <button @click="modCount('sub', 1)"
             @mousedown="disCount()"
+            @touchstart="disCount()"
             @mouseup="stopCount()"
             @mouseleave="stopCount()" 
-            @touchstart="disCount()"
             @touchend="stopCount()" 
             @touchcancel="stopCount()" 
             >-1</button>
@@ -59,9 +59,9 @@
             <button 
             @click="modCount(undefined, 1)"
             @mousedown="addCount()"
+            @touchstart="addCount()"
             @mouseup="stopCount()"
             @mouseleave="stopCount()" 
-            @touchstart="addCount()"
             @touchend="stopCount()" 
             @touchcancel="stopCount()" 
             >+1</button>

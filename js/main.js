@@ -4,23 +4,34 @@ const app = Vue.createApp({
       title: "Contador App - Vue",
       count: 0,
       interval: null,
+      isStopInterval: false,
     };
   },
   methods: {
     disCount() {
-      // console.log("click");
       setTimeout(() => {
-        this.interval = setInterval(() => this.count--, 150);
+        this.isStopInterval = false;
+        const refreshIntervalId = setInterval(() => {
+          this.count--;
+          if (this.isStopInterval) {
+            clearInterval(refreshIntervalId);
+          }
+        }, 150);
       }, 500);
     },
     addCount() {
       setTimeout(() => {
-        this.interval = setInterval(() => this.count++, 150);
+        this.isStopInterval = false;
+        const refreshIntervalId = setInterval(() => {
+          this.count++;
+          if (this.isStopInterval) {
+            clearInterval(refreshIntervalId);
+          }
+        }, 150);
       }, 500);
     },
     stopCount() {
-      clearInterval(this.interval);
-      this.interval = false;
+      this.isStopInterval = true;
     },
     modCount(instruction = "add", limit = 1) {
       if (instruction === "add") {
