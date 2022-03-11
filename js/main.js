@@ -9,29 +9,10 @@ const app = Vue.createApp({
   },
   methods: {
     disCount() {
-      setTimeout(() => {
-        this.isStopInterval = false;
-        const refreshIntervalId = setInterval(() => {
-          this.count--;
-          if (this.isStopInterval) {
-            clearInterval(refreshIntervalId);
-          }
-        }, 150);
-      }, 500);
+      this.count--;
     },
     addCount() {
-      setTimeout(() => {
-        this.isStopInterval = false;
-        const refreshIntervalId = setInterval(() => {
-          this.count++;
-          if (this.isStopInterval) {
-            clearInterval(refreshIntervalId);
-          }
-        }, 150);
-      }, 500);
-    },
-    stopCount() {
-      this.isStopInterval = true;
+      this.count++;          
     },
     modCount(instruction = "add", limit = 1) {
       clearInterval(this.interval);
